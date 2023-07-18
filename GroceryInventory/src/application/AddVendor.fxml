@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="25.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddVendorController">
+   <children>
+      <Label text="Add Vendor">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Region prefHeight="22.0" prefWidth="600.0" />
+      <HBox alignment="CENTER" prefWidth="200.0" spacing="20.0">
+         <children>
+            <Label text="Name:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameBox" promptText="Vendor Name" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="203.0" prefWidth="200.0" spacing="20.0">
+         <children>
+            <Label text="Phone:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="phoneBox" promptText="Vendor Phone Number" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="269.0" prefWidth="200.0" spacing="20.0">
+         <children>
+            <Label text="Email:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="emailBox" promptText="Vendor Email" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefWidth="200.0" spacing="20.0">
+         <children>
+            <Button fx:id="addButton" layoutX="277.0" layoutY="10.0" mnemonicParsing="false" onAction="#add" style="-fx-background-color: #246ded; -fx-background-radius: 30;" text="Add" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

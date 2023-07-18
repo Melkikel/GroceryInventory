@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?scenebuilder-preview-i18n-resource ?>
+
+<BorderPane onMouseEntered="#updateList" prefHeight="720.0" prefWidth="1280.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.VendorController">
+   <top>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <Region prefHeight="100.0" prefWidth="75.0" />
+            <VBox alignment="CENTER_LEFT">
+               <children>
+                  <Label text="Vendors">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="totalVendors" style="-fx-text-fill: gray;" text="5 Vendors">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Region prefHeight="100.0" prefWidth="90.0" HBox.hgrow="ALWAYS" />
+            <TextField fx:id="searchBox" onKeyPressed="#handleSearchEnter" prefHeight="40.0" prefWidth="300.0" promptText="Search" style="-fx-background-radius: 30;">
+               <padding>
+                  <Insets left="30.0" right="30.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Button id="gb" mnemonicParsing="false" onAction="#findButtonClick" style="-fx-background-color: #c7c7c7; -fx-background-radius: 30;" text="Find" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="addButton" layoutX="1137.0" layoutY="36.0" mnemonicParsing="false" onAction="#edit" style="-fx-background-color: #c7c7c7; -fx-background-radius: 30;" text="Edit" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="addButton1" layoutX="1164.0" layoutY="40.0" mnemonicParsing="false" onAction="#add" style="-fx-background-color: #246ded; -fx-background-radius: 30;" text="Add" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets left="30.0" right="30.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox prefHeight="22.0" prefWidth="1280.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <left>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Region prefHeight="109.0" prefWidth="100.0" />
+            <Circle fx:id="productsCircle" fill="#246ded" onMouseClicked="#toProducts" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-translate-y: 45; -fx-fill: transparent;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Circle>
+            <FontIcon fx:id="productsIcon" iconLiteral="fas-shopping-bag" iconSize="30" onMouseClicked="#toProducts" selectionFill="#c7c7c7">
+               <effect>
+                  <DropShadow height="10.0" offsetY="2.0" radius="4.5" width="10.0">
+                     <color>
+                        <Color red="0.6315789222717285" green="0.6315789222717285" blue="0.6315789222717285" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </FontIcon>
+            <Circle fx:id="vendorsCircle" fill="#246ded" layoutX="60.0" layoutY="143.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-translate-y: 45;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Circle>
+            <FontIcon fx:id="vendorsIcon" iconColor="WHITE" iconLiteral="fas-store" iconSize="30">
+               <effect>
+                  <DropShadow height="10.0" offsetY="2.0" radius="4.5" width="10.0">
+                     <color>
+                        <Color red="0.7803921699523926" green="0.7803921699523926" blue="0.7803921699523926" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </FontIcon>
+            <Circle fx:id="billsCircle" fill="#246ded" layoutX="60.0" layoutY="258.0" onMouseClicked="#toBills" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-translate-y: 45; -fx-fill: transparent;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Circle>
+            <FontIcon fx:id="billsIcon" iconLiteral="fas-receipt" iconSize="30" onMouseClicked="#toBills">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow height="10.0" offsetY="2.0" radius="4.5" width="10.0">
+                     <color>
+                        <Color red="0.7803921699523926" green="0.7803921699523926" blue="0.7803921699523926" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </FontIcon>
+            <Circle fx:id="ordersCircle" fill="#246ded" layoutX="60.0" layoutY="302.0" onMouseClicked="#toOrders" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-translate-y: 45; -fx-fill: transparent;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Circle>
+            <FontIcon fx:id="ordersIcon" iconLiteral="fas-shopping-cart" iconSize="30" onMouseClicked="#toOrders">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow height="10.0" offsetY="2.0" radius="4.5" width="10.0">
+                     <color>
+                        <Color red="0.7803921699523926" green="0.7803921699523926" blue="0.7803921699523926" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </FontIcon>
+            <Circle fx:id="reportsCircle" fill="#246ded" onMouseClicked="#toReports" radius="30.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-translate-y: 45; -fx-fill: transparent;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Circle>
+            <FontIcon fx:id="reportsIcon" iconLiteral="fas-file-alt" iconSize="30" onMouseClicked="#toReports">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></FontIcon>
+            <Region prefHeight="144.0" prefWidth="100.0" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin></VBox>
+   </left>
+   <center>
+      <ListView fx:id="vendorList" onMousePressed="#getVendor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <right>
+      <VBox prefWidth="500.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="30.0" right="30.0" />
+         </BorderPane.margin>
+         <children>
+            <Label text="Produts Offered">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <ListView fx:id="productsList" prefHeight="598.0" prefWidth="439.0" />
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
